@@ -1,9 +1,0 @@
-useDynLib(voronoi, .registration = TRUE)
-
-export(fortune)
-
-importFrom(graphics, plot.default, segments)
-importFrom(stats, median)
-
-S3method(print, voronoi)
-S3method(plot, voronoi)
