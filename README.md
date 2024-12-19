@@ -2,18 +2,18 @@
 
 `voronoi` is an R port of a program written in C by [Steven Fortune](https://9p.io/who/sjf/). It performs Voronoi tessellation and Delaunay triangulation using a very efficient algorithm described in:
 
->Fortune, S. (1987) A sweepline algorithm for Voronoi diagrams. *Algorithmica* **2:** 153--174. [`10.1007/BF01840357`](https://doi.org/10.1007/BF01840357).
+>Fortune, S. (1987) A sweepline algorithm for Voronoi diagrams. *Algorithmica* **2:** 153-174. Doi:[`10.1007/BF01840357`](https://doi.org/10.1007/BF01840357).
 
 Two main changes were made to the original C code:
 
-1. All real numbers are now coded as double precision (`double`) instead of single precision (`float`).
+1. All real numbers are now coded as double precision instead of single precision.
 2. The data are now passed to and returned from R (no files are written/read).
 
 <h3>Installation and Usage</h3>
 
 The package should be easy to install giving R and a C compiler (i.e., standard install from sources of an R package).
 
-The main function is called `voronoi()` and takes as main argument a matrix with two columns giving the $x$ and $y$ coordinates. There are two options:
+The main function is named `voronoi()` and takes as main argument a matrix with two columns giving the $x$ and $y$ coordinates. There are two options:
 
 - `sorted = FALSE`: if the coordinates are already sorted in increasing order *first* by $y$, *then* by $x$ (see `?order` in R).
 - `debug = FALSE`: if `debug = TRUE` (very) verbose of the computation details are printed.
