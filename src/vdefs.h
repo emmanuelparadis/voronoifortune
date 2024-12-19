@@ -3,7 +3,7 @@
 /* Copyright 2021 Plan 9 Foundation, 2024 Emmanuel Paradis */
 
 /* This file is part of the R-package `voronoi'. */
-/* See the file ../../LICENSE for licensing issues. */
+/* See the file ../../COPYING for licensing issues. */
 
 #ifndef __VDEFS_H
 #define __VDEFS_H

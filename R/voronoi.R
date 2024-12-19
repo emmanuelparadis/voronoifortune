@@ -1,29 +1,21 @@
-voronoi <- function(X,# delaunay = TRUE, voronoi = FALSE,
-                    sorted = FALSE, debug = FALSE)
+## voronoi.R (2024-12-19)
+
+## Copyright 2024 Emmanuel Paradis
+
+## This file is part of the R-package `voronoi'.
+## See the file ../DESCRIPTION for licensing issues.
+
+voronoi <- function(X, sorted = FALSE, debug = FALSE)
 {
     if (ncol(X) != 2) stop("need 2 columns")
     if (nrow(X) < 3) stop("not enough rows")
-
-#    if (delaunay) {
-#        option <- 2L
-#        if (voronoi) option <- 4L
-#    } else {
-#        if (voronoi) option <- 3L
-#    }
-#    if (debug) option <- 1L
-#
-#    nms <- switch(option - 1L,
-#                  "Triplets",
-#                  c("Vertices", "Edges"),
-#                  c("Triplets", "Vertices", "Edges"))
 
     if (!sorted) {
         o <- order(X[, 2], X[, 1]) # sort sites on y, then x, coord
         X <- X[o, ]
     }
-    nms <- c("Triplets", "Vertices", "Edges", "Lines")
     res <- .Call(voronoi_fortune, X, debug)
-    names(res) <- nms
+    names(res) <- c("Triplets", "Vertices", "Edges", "Lines")
 
     if (!sorted) { #delaunay &&
         trip <- res$Triplets

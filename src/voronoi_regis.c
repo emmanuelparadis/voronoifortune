@@ -3,7 +3,7 @@
 /* Copyright 2024 Emmanuel Paradis */
 
 /* This file is part of the R-package `voronoi'. */
-/* See the file ../../LICENSE for licensing issues. */
+/* See the file ../../COPYING for licensing issues. */
 
 #include <R.h>
 #include <Rinternals.h>

@@ -1,4 +1,4 @@
-<h2>`voronoi`: Voronoi Tessellation and Delaunay Triangulation By Fortune's Algorithm</h2>
+<h2>voronoi: Voronoi Tessellation and Delaunay Triangulation By Fortune's Algorithm</h2>
 
 `voronoi` is an R port of a program written in C by [Steven Fortune](https://9p.io/who/sjf/). It performs Voronoi tessellation and Delaunay triangulation using a very efficient algorithm described in:
 
