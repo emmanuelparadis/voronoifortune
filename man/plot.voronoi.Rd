@@ -7,9 +7,8 @@
 \usage{
 \method{plot}{voronoi}(x, delaunay = TRUE, voronoi = TRUE,
      X = NULL, asp = 1,
-     col.delaunay = "red", col.voronoi = "blue", \dots)
+     col.delaunay = "red", col.voronoi = "blue", ...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{an object of class \code{"voronoi"}.}
   \item{delaunay}{a logical value: draw the Delaunay triangulation?}
