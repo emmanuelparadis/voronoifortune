@@ -1,6 +1,6 @@
 /* edgelist.c    2024-12-19 */
 
-/* Copyright 2021 Plan 9 Foundation, 2024 Emmanuel Paradis */
+/* Copyright 2021 Plan 9 Foundation */
 
 /* This file is part of the R-package `voronoi'. */
 /* See the file ../../COPYING for licensing issues. */

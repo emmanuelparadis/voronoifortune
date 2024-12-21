@@ -98,5 +98,5 @@ R> plot(res)
 
 <h3>TODO</h3>
 
-- The Delaunay triangulation returned by `voronoi::voronoi()` often misses some edges at the periphery of the points: these edges can easily found with convex hull (`hull()` in R). This will be fixed later.
+- The Delaunay triangulation returned by `voronoi::voronoi()` often misses some edges at the periphery of the points: these edges can easily be found with a convex hull (`hull()` in R). This will be fixed later.
 - Some memory leaks might still be need to be fixed from the original C code.
