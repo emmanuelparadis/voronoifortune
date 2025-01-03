@@ -1,4 +1,4 @@
-/* edgelist.c    2024-12-19 */
+/* edgelist.c    2025-01-03 */
 
 /* Copyright 2021 Plan 9 Foundation */
 
@@ -23,7 +23,8 @@ ELinitialize(void)
 
     freeinit(&hfl, sizeof(Halfedge)) ;
     ELhashsize = 2 * sqrt_nsites ;
-    ELhash = (Halfedge **)myalloc( sizeof(*ELhash) * ELhashsize) ;
+    /* ELhash = (Halfedge **)myalloc( sizeof(*ELhash) * ELhashsize) ; */
+    ELhash = (Halfedge **)R_alloc(ELhashsize, sizeof(*ELhash));
     for (i = 0  ; i < ELhashsize  ; i++)
         {
         ELhash[i] = (Halfedge *)NULL ;

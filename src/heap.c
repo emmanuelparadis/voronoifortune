@@ -1,4 +1,4 @@
-/* heap.c    2024-12-19 */
+/* heap.c    2025-01-03 */
 
 /* Copyright 2021 Plan 9 Foundation */
 
@@ -115,7 +115,8 @@ PQinitialize(void)
 
     PQcount = PQmin = 0 ;
     PQhashsize = 4 * sqrt_nsites ;
-    PQhash = (Halfedge *)myalloc(PQhashsize * sizeof *PQhash) ;
+    /* PQhash = (Halfedge *)myalloc(PQhashsize * sizeof *PQhash) ; */
+    PQhash = (Halfedge *)R_alloc(PQhashsize, sizeof *PQhash) ;
     for (i = 0 ; i < PQhashsize; i++)
         {
         PQhash[i].PQnext = (Halfedge *)NULL ;

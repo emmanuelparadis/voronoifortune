@@ -41,8 +41,8 @@ print.voronoi <- function(x, ...)
 }
 
 plot.voronoi <-
-    function(x, delaunay = TRUE, voronoi = TRUE, X = NULL, asp = 1,
-             col.delaunay = "red", col.voronoi = "blue", ...)
+    function(x, delaunay = TRUE, voronoi = TRUE, X = NULL, add = FALSE,
+             asp = 1, col.delaunay = "red", col.voronoi = "blue", ...)
 {
     if (delaunay) {
         if (is.null(X)) {
@@ -53,7 +53,7 @@ plot.voronoi <-
                 stop("cannot find a matrix 'X'")
             }
         }
-        plot.default(X, col = col.delaunay, asp = asp, ...)
+        if (!add) plot.default(X, col = col.delaunay, asp = asp, ...)
         i1 <- x$Triplets[, 1L]
         i2 <- x$Triplets[, 2L]
         i3 <- x$Triplets[, 3L]
@@ -63,7 +63,7 @@ plot.voronoi <-
                  col = col.delaunay)
     }
     if (voronoi) {
-        if (!delaunay)
+        if (!delaunay && !add)
             plot.default(x$Vertices, type = "n", col = col.voronoi,
                          asp = asp, ...)
 

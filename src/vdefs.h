@@ -1,6 +1,6 @@
-/* vdefs.h    2024-12-19 */
+/* vdefs.h    2025-01-03 */
 
-/* Copyright 2021 Plan 9 Foundation, 2024 Emmanuel Paradis */
+/* Copyright 2021 Plan 9 Foundation, 2024-2025 Emmanuel Paradis */
 
 /* This file is part of the R-package `voronoi'. */
 /* See the file ../../COPYING for licensing issues. */
@@ -122,7 +122,7 @@ extern int getopt(int, char *const *, const char *);
 void freeinit(Freelist *, int) ;
 char *getfree(Freelist *) ;
 void makefree(Freenode *, Freelist *) ;
-char *myalloc(unsigned) ;
+/* char *myalloc(unsigned) ; */
 
 /* output.c */
 /* void openpl(void) ; */

@@ -6,7 +6,7 @@
 }
 \usage{
 \method{plot}{voronoi}(x, delaunay = TRUE, voronoi = TRUE,
-     X = NULL, asp = 1,
+     X = NULL, add = FALSE, asp = 1,
      col.delaunay = "red", col.voronoi = "blue", ...)
 }
 \arguments{
@@ -14,6 +14,9 @@
   \item{delaunay}{a logical value: draw the Delaunay triangulation?}
   \item{voronoi}{a logical value: draw the Voronoi tessellation?}
   \item{X}{a two-column matrix with the original data (sites).}
+  \item{add}{a logical value. By default, a new plot is made. Setting
+    \code{add = TRUE} is useful to add the tessellation and/or
+    triangulation on, for instance, a map.}
   \item{asp}{a numeric value. By default, both axes are scaled
     similarly (isometry). Use \code{asp = NULL} to have independent
     scaling on both axes (like a standard plot).}

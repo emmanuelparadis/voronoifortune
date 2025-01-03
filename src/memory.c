@@ -1,4 +1,4 @@
-/* memory.c    2024-12-19 */
+/* memory.c    2025-01-03 */
 
 /* Copyright 2021 Plan 9 Foundation */
 
@@ -25,7 +25,8 @@ getfree(Freelist * fl)
     Freenode * t ;
     if (fl->head == (Freenode *)NULL)
         {
-        t =  (Freenode *) myalloc(sqrt_nsites * fl->nodesize) ;
+        /* t =  (Freenode *) myalloc(sqrt_nsites * fl->nodesize) ; */
+	    t =  (Freenode *) R_alloc(sqrt_nsites, fl->nodesize) ;
         for(i = 0 ; i < sqrt_nsites ; i++)
             {
             makefree((Freenode *)((char *)t+i*fl->nodesize), fl) ;
@@ -43,18 +44,21 @@ makefree(Freenode * curr, Freelist * fl)
     fl->head = curr ;
     }
 
-int total_alloc ;
 
-char *
-myalloc(unsigned n)
-    {
-    char * t ;
-    if ((t=malloc(n)) == (char *) 0)
-        {
-        error("Insufficient memory processing site %d (%d bytes in use)\n",
-        siteidx, total_alloc) ;
-        /* exit(0) ; */
-        }
-    total_alloc += n ;
-    return (t) ;
-    }
+
+/* int total_alloc ; */
+
+/* char * */
+/* myalloc(unsigned n) */
+/*     { */
+/* 	//Rprintf("CALLING myalloc(%u)\ttotal_alloc = %d\n", n, total_alloc); */
+/*     char * t ; */
+/*     if ((t=malloc(n)) == (char *) 0) */
+/*         { */
+/*         error("Insufficient memory processing site %d (%d bytes in use)\n", */
+/*         siteidx, total_alloc) ; */
+/*         /\* exit(0) ; *\/ */
+/*         } */
+/*     total_alloc += n ; */
+/*     return (t) ; */
+/*     } */

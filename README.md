@@ -1,6 +1,6 @@
 <h2>Voronoi Tessellation and Delaunay Triangulation By Fortune's Algorithm</h2>
 
-`voronoi` is an R port of a program written in C by [Steven Fortune](https://9p.io/who/sjf/). It performs Voronoi tessellation and Delaunay triangulation using a very efficient algorithm described in:
+**voronoi** is an R port of a program written in C by [Steven Fortune](https://9p.io/who/sjf/). It performs Voronoi tessellation and Delaunay triangulation using a very efficient algorithm described in:
 
 >Fortune, S. (1987) A sweepline algorithm for Voronoi diagrams. *Algorithmica* **2:** 153-174. Doi:[`10.1007/BF01840357`](https://doi.org/10.1007/BF01840357).
 
@@ -31,7 +31,7 @@ There are a `print()` and a `plot()` methods to display the results.
 
 I found two packages performing similar operations on CRAN: [deldir](https://cran.r-project.org/package=deldir) and [tessellation](https://cran.r-project.org/package=tessellation).
 
-First, these packages do not have the same functionalities: the present one considers only 2-D data, whereas `tessellation` can do tessellation in 3-D.
+First, these packages do not have the same functionalities: the present one considers only 2-D data, whereas **tessellation** can do tessellation in 3-D.
 
 Second, Fortune's algorithm is much faster than the algorithms implemented in the two other packages. Next is an example with 1000 points:
 
@@ -48,7 +48,7 @@ L'objet suivant est masqué depuis ‘package:tessellation’:
     voronoi
 ```
 
-We note that `tessellation` has also a function named `voronoi()`, but since the present package was loaded after, we don't need to call it with the namespace operator (`::`). In case of doubt, `voronoi::voronoi()` and `tessellation::voronoi()` can be used.
+We note that *tessellation* has also a function named `voronoi()`, but since the present package was loaded after, we don't need to call it with the namespace operator. In case of doubt, `voronoi::voronoi()` and `tessellation::voronoi()` can be used.
 
 ```r
 R> n <- 1000L
@@ -85,7 +85,7 @@ utilisateur     système      écoulé
       7.948       0.383       8.369
 ```
 
-The results seem very close for all functions. Here's an example with `n <- 100` and the default plotting parameters (from left to right: `tessellation`, `deldir`, `voronoi`):
+The results seem very close for all functions. Here's an example with `n <- 100` and the default plotting parameters (from left to right: **tessellation**, **deldir**, **voronoi**):
 
 ```r
 R> layout(matrix(1:3, 1))
@@ -99,4 +99,4 @@ R> plot(res)
 <h3>TODO</h3>
 
 - The Delaunay triangulation returned by `voronoi::voronoi()` often misses some edges at the periphery of the points: these edges can easily be found with a convex hull (`hull()` in R). This will be fixed later.
-- Some memory leaks might still be need to be fixed from the original C code.
+- ~~Some memory leaks might still be need to be fixed from the original C code.~~ The original C code did not call `free()`; this was fixed by replacing `malloc()` by `R_alloc()`.
