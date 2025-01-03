@@ -13,26 +13,29 @@
   \item{x}{an object of class \code{"voronoi"}.}
   \item{delaunay}{a logical value: draw the Delaunay triangulation?}
   \item{voronoi}{a logical value: draw the Voronoi tessellation?}
-  \item{X}{a two-column matrix with the original data (sites).}
+  \item{X}{a two-column matrix with the original data (site
+    coordinates).}
   \item{add}{a logical value. By default, a new plot is made. Setting
-    \code{add = TRUE} is useful to add the tessellation and/or
-    triangulation on, for instance, a map.}
+    \code{add = TRUE} is useful to add the tessellation and/or the
+    triangulation on, e.g., a map.}
   \item{asp}{a numeric value. By default, both axes are scaled
     similarly (isometry). Use \code{asp = NULL} to have independent
-    scaling on both axes (like a standard plot).}
+    scaling on both axes (like a standard plot in \R).}
   \item{col.delaunay, col.voronoi}{the colours used for the segments.}
   \item{\dots}{other arguments passed to \code{\link{plot.default}}.}
 }
 \details{
-  The \code{\dots} argument makes the plotting quite flexible.
+  The \code{\dots} argument makes plotting very flexible.
 
-  The plot procedure is to first draw the DT, setting the limits
-  according to the data, and then to draw the VT. The Fortune algorithm
-  often adds some vertices which are far from data points (sites); so if
-  \code{delaunay = FALSE}, the scales are likely to extend much more
-  than the default.
+  The default plot procedure is to first draw the DT, setting the limits
+  according to the data, and then to draw the VT. Playing with the
+  different options can change the order of these plots.
 
-  The infinite edges are drawn as dashed lines.
+  The Fortune algorithm often adds some vertices which are far from data
+  points (sites); so if \code{delaunay = FALSE}, the scales are likely
+  to extend much more than the default.
+
+  The infinite edges of the VT are drawn as dashed lines.
 }
 \value{
   (NULL).
@@ -40,7 +43,8 @@
 \author{Emmanuel Paradis}
 \seealso{\code{\link{voronoi}}}
 \examples{
-example(voronoi)
+X <- matrix(runif(200), 100, 2)
+res <- voronoi(X)
 plot(res)
 plot(res, delaunay = FALSE)
 
