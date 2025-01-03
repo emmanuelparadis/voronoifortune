@@ -85,7 +85,7 @@ utilisateur     système      écoulé
       7.948       0.383       8.369
 ```
 
-The results seem very close for all functions. Here's an example with `n <- 100` and the default plotting parameters (from left to right: **tessellation**, **deldir**, **voronoi**):
+The results seem identical for all functions. Here's an example with `n <- 100` and the default plotting parameters (from left to right: **tessellation**, **deldir**, **voronoi**):
 
 ```r
 R> layout(matrix(1:3, 1))
@@ -98,5 +98,6 @@ R> plot(res)
 
 <h3>TODO</h3>
 
-- The Delaunay triangulation returned by `voronoi::voronoi()` often misses some edges at the periphery of the points: these edges can easily be found with a convex hull (`hull()` in R). This will be fixed later.
+- ~~The Delaunay triangulation returned by `voronoi::voronoi()` often misses some edges at the periphery of the points: these edges can easily be found with a convex hull (`hull()` in R). This will be fixed later.~~ This was a bug in the R code. The plots are now fine.
 - ~~Some memory leaks might still be need to be fixed from the original C code.~~ The original C code did not call `free()`; this was fixed by replacing `malloc()` by `R_alloc()`.
+- Prepare the package for a submission to CRAN.

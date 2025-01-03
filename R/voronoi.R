@@ -1,6 +1,6 @@
-## voronoi.R (2024-12-19)
+## voronoi.R (2025-01-03)
 
-## Copyright 2024 Emmanuel Paradis
+## Copyright 2024-2025 Emmanuel Paradis
 
 ## This file is part of the R-package `voronoi'.
 ## See the file ../DESCRIPTION for licensing issues.
@@ -11,7 +11,7 @@ voronoi <- function(X, sorted = FALSE, debug = FALSE)
     if (nrow(X) < 3) stop("not enough rows")
 
     if (!sorted) {
-        o <- order(X[, 2], X[, 1]) # sort sites on y, then x, coord
+        o <- order(X[, 2], X[, 1]) # sort sites on y, then x
         X <- X[o, ]
     }
     res <- .Call(voronoi_fortune, X, debug)
@@ -54,13 +54,16 @@ plot.voronoi <-
             }
         }
         if (!add) plot.default(X, col = col.delaunay, asp = asp, ...)
-        i1 <- x$Triplets[, 1L]
-        i2 <- x$Triplets[, 2L]
-        i3 <- x$Triplets[, 3L]
-        segments(X[i3, 1L], X[i3, 2L], X[i2, 1L], X[i2, 2L],
-                 col = col.delaunay)
-        segments(X[i1, 1L], X[i1, 2L], X[i2, 1L], X[i2, 2L],
-                 col = col.delaunay)
+
+        ii <- rbind(x$Triplets[, -3L], x$Triplets[, -2L], x$Triplets[, -1L])
+        ii <- unique.matrix(apply(ii, 1L, sort), MARGIN = 2L)
+        i0 <- ii[1L, ]
+        i1 <- ii[2L, ]
+        x0 <- X[i0, 1L]
+        y0 <- X[i0, 2L]
+        x1 <- X[i1, 1L]
+        y1 <- X[i1, 2L]
+        segments(x0, y0, x1, y1, col = col.delaunay)
     }
     if (voronoi) {
         if (!delaunay && !add)
