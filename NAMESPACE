@@ -1,4 +1,4 @@
-useDynLib(voronoi, .registration = TRUE)
+useDynLib(voronoifortune, .registration = TRUE)
 
 export(voronoi)
 

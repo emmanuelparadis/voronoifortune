@@ -1,13 +1,13 @@
-\name{voronoi-package}
-\alias{voronoi-package}
+\name{voronoifortune-package}
+\alias{voronoifortune-package}
 \docType{package}
 \title{Fortune Algorithm for Voronoi Diagrams}
 \description{
-  \pkg{voronoi} is a port to \R of Fortune's algorithm, a very fast
-  method to compute simultaneously the Delaunay triangulaton and the
-  Voronoi tessellation for a set of sites (points). The algorithm scales
-  linearly with the number of points whereas most other algorithms scale
-  polynomially.
+  \pkg{voronoifortune} is a port to \R of Fortune's algorithm, a very
+  fast method to compute simultaneously the Delaunay triangulaton and
+  the Voronoi tessellation for a set of sites (points). The algorithm
+  scales linearly with the number of points whereas most other
+  algorithms scale polynomially.
 
   A Voronoi tessellation defines for each site a cell (or region) so
   that all points included in the cell are not nearer to any other sites

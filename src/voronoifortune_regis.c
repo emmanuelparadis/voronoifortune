@@ -1,4 +1,4 @@
-/* voronoi_regis.c    2024-12-19 */
+/* voronoifortune_regis.c    2024-12-19 */
 
 /* Copyright 2024 Emmanuel Paradis */
 
@@ -16,7 +16,7 @@ static R_CallMethodDef Call_entries[] = {
     {NULL, NULL, 0}
 };
 
-void R_init_voronoi(DllInfo *info)
+void R_init_voronoifortune(DllInfo *info)
 {
     R_registerRoutines(info, NULL, Call_entries, NULL, NULL);
     R_useDynamicSymbols(info, FALSE);

@@ -1,6 +1,6 @@
 <h2>Voronoi Tessellation and Delaunay Triangulation By Fortune's Algorithm</h2>
 
-**voronoi** is an R port of a program written in C by [Steven Fortune](https://9p.io/who/sjf/). It performs Voronoi tessellation and Delaunay triangulation using a very efficient algorithm described in:
+**voronoifortune** is an R port of a program written in C by [Steven Fortune](https://9p.io/who/sjf/). It performs Voronoi tessellation and Delaunay triangulation using a very efficient algorithm described in:
 
 >Fortune, S. (1987) A sweepline algorithm for Voronoi diagrams. *Algorithmica* **2:** 153-174. Doi:[`10.1007/BF01840357`](https://doi.org/10.1007/BF01840357).
 
@@ -39,7 +39,7 @@ Second, Fortune's algorithm is much faster than the algorithms implemented in th
 R> library(deldir)
 deldir 0.1-25
 R> library(tessellation)
-R> library(voronoi)
+R> library(voronoifortune)
 
 Attachement du package : ‘voronoi’
 
@@ -48,7 +48,7 @@ L'objet suivant est masqué depuis ‘package:tessellation’:
     voronoi
 ```
 
-We note that *tessellation* has also a function named `voronoi()`, but since the present package was loaded after, we don't need to call it with the namespace operator. In case of doubt, `voronoi::voronoi()` and `tessellation::voronoi()` can be used.
+We note that *tessellation* has also a function named `voronoi()`, but since the present package was loaded after, we don't need to call it with the namespace operator. In case of doubt, `voronoifortune::voronoi()` and `tessellation::voronoi()` can be used.
 
 ```r
 R> n <- 1000L
@@ -85,7 +85,7 @@ utilisateur     système      écoulé
       7.948       0.383       8.369
 ```
 
-The results seem identical for all functions. Here's an example with `n <- 100` and the default plotting parameters (from left to right: **tessellation**, **deldir**, **voronoi**):
+The results seem identical for all functions. Here's an example with `n <- 100` and the default plotting parameters (from left to right: **tessellation**, **deldir**, **voronoifortune**):
 
 ```r
 R> layout(matrix(1:3, 1))
