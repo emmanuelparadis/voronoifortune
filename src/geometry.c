@@ -9,8 +9,6 @@
 #include <Rinternals.h>
 #include "vdefs.h"
 
-//#include <math.h> // utile ??
-
 double deltax, deltay ;
 int nedges, sqrt_nsites, nvertices ;
 Freelist efl ;

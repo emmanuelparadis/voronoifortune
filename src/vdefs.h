@@ -107,7 +107,7 @@ extern int PQmin, PQcount, PQhashsize ;
 extern Halfedge * PQhash ;
 
 /* main.c */
-extern int /* tessellate, triangulate, plot,  */debug, nsites, siteidx ;
+extern int debug, nsites, siteidx ;
 extern double xmin, xmax, ymin, ymax ;
 extern Site * sites ;
 extern Freelist sfl ;
@@ -122,23 +122,15 @@ extern int getopt(int, char *const *, const char *);
 void freeinit(Freelist *, int) ;
 char *getfree(Freelist *) ;
 void makefree(Freenode *, Freelist *) ;
-/* char *myalloc(unsigned) ; */
 
 /* output.c */
-/* void openpl(void) ; */
-/* void line(float, float, float, float) ; */
-/* void circle(float, float, float) ; */
-/* void range(float, float, float, float) ; */
 void out_bisector(Edge *) ;
 void out_ep(Edge *) ;
 void out_vertex(Site *) ;
 void out_site(Site *) ;
 void out_triple(Site *, Site *, Site *) ;
-/* void plotinit(void) ; */
-/* void clip_line(Edge *) ; */
 
 /* voronoi.c */
-/* void voronoi(Site *(*)()) ; */
 void voronoi(Site *(*nextsite)(void));
 
 #endif

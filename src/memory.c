@@ -43,22 +43,3 @@ makefree(Freenode * curr, Freelist * fl)
     curr->nextfree = fl->head ;
     fl->head = curr ;
     }
-
-
-
-/* int total_alloc ; */
-
-/* char * */
-/* myalloc(unsigned n) */
-/*     { */
-/* 	//Rprintf("CALLING myalloc(%u)\ttotal_alloc = %d\n", n, total_alloc); */
-/*     char * t ; */
-/*     if ((t=malloc(n)) == (char *) 0) */
-/*         { */
-/*         error("Insufficient memory processing site %d (%d bytes in use)\n", */
-/*         siteidx, total_alloc) ; */
-/*         /\* exit(0) ; *\/ */
-/*         } */
-/*     total_alloc += n ; */
-/*     return (t) ; */
-/*     } */
