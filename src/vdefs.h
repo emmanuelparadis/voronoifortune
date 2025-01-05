@@ -2,7 +2,7 @@
 
 /* Copyright 2021 Plan 9 Foundation, 2024-2025 Emmanuel Paradis */
 
-/* This file is part of the R-package `voronoi'. */
+/* This file is part of the R-package `voronoifortune'. */
 /* See the file ../../COPYING for licensing issues. */
 
 #ifndef __VDEFS_H
@@ -138,7 +138,8 @@ void out_triple(Site *, Site *, Site *) ;
 /* void clip_line(Edge *) ; */
 
 /* voronoi.c */
-void voronoi(Site *(*)()) ;
+/* void voronoi(Site *(*)()) ; */
+void voronoi(Site *(*nextsite)(void));
 
 #endif
 

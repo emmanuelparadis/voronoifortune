@@ -2,7 +2,7 @@
 
 ## Copyright 2024-2025 Emmanuel Paradis
 
-## This file is part of the R-package `voronoi'.
+## This file is part of the R-package `voronoifortune'.
 ## See the file ../DESCRIPTION for licensing issues.
 
 voronoi <- function(X, sorted = FALSE, debug = FALSE)

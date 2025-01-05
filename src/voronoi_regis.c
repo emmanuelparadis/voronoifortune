@@ -2,7 +2,7 @@
 
 /* Copyright 2024 Emmanuel Paradis */
 
-/* This file is part of the R-package `voronoi'. */
+/* This file is part of the R-package `voronoifortune'. */
 /* See the file ../../COPYING for licensing issues. */
 
 #include <R.h>

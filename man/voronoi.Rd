@@ -14,8 +14,8 @@ voronoi(X, sorted = FALSE, debug = FALSE)
   \item{X}{a two-column matrix with the coordinates.}
   \item{sorted}{a logical: are the coordinates already sorted in
     increasing order first by y, then by x? (See
-    \code{\link[base]{order}}.) If \code{TRUE}, this shortens running
-    time.}
+    \code{\link[base]{order}}.) If \code{TRUE}, this shortens the
+    running time.}
   \item{debug}{a logical: if \code{TRUE}, some details of the
     computation are printed for debugging.}
   \item{x}{an object of class \code{"voronoi"}.}
@@ -30,11 +30,10 @@ voronoi(X, sorted = FALSE, debug = FALSE)
   \item{Vertices}{a two-column matrix of reals giving the coordinates of
     the vertices of the Voronoi tessellation;}
   \item{Edges}{a two-column matrix of integers giving the edges of the
-    tessellation (indices of the vertices in the previous matrix);}
+    tessellation (row indices of the vertices in the previous matrix);}
   \item{Lines}{a description of the previous edges (some of them are
     semi-infinite indicated by a 0 in the matrix \code{Edges}; this
-    element is used to draw the dashed lines by
-    \code{\link{plot.voronoi}}).}
+    is used to draw the dashed lines by \code{\link{plot.voronoi}}).}
 }
 \references{
   Fortune, S. (1987) A sweepline algorithm for Voronoi
@@ -51,7 +50,7 @@ X <- cbind(xx, yy)
 (res <- voronoi(X))
 str(res)
 
-### show the circumcle of each Delaunay triangle ###
+### show the circumcircle of each Delaunay triangle ###
 
 n <- 10L
 X <- cbind(runif(n), runif(n))

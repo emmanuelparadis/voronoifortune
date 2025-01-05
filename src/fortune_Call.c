@@ -2,21 +2,17 @@
 
 /* Copyright 2021 Plan 9 Foundation, 2024 Emmanuel Paradis */
 
-/* This file is part of the R-package `voronoi'. */
+/* This file is part of the R-package `voronoifortune'. */
 /* See the file ../../COPYING for licensing issues. */
 
 #include <R.h>
 #include <Rinternals.h>
 #include "vdefs.h"
 
-/* Site * nextone(void) ; */
-/* Site * readone(void), * nextone(void) ; */
-/* void readsites(void) ; */
-
-int /* tessellate, triangulate, plot,  */debug, nsites, siteidx ;
-double xmin, xmax, ymin, ymax ;
-Site * sites ;
-Freelist sfl ;
+int debug, nsites, siteidx;
+double xmin, xmax, ymin, ymax;
+Site * sites;
+Freelist sfl;
 
 int *ptr_res_1, *ptr_res_2, *ptr_res_3, i_out, ie, i_vtx, il;
 double *coord_vertex_x, *coord_vertex_y, *line_a, *line_b, *line_c;
@@ -40,7 +36,6 @@ nextone(void)
 
 SEXP voronoi_fortune(SEXP X, SEXP DEBUG)
 {
-    Site *(*next)() ;
     SEXP res, mat0, mat1, mat2, mat3;
     int N, i, *ptr_int;
     double *xy, *ptr_dbl;
@@ -52,25 +47,6 @@ SEXP voronoi_fortune(SEXP X, SEXP DEBUG)
     nsites = nrows(X);
     N = 2 * nsites - 2;
     xy = REAL(X);
-
-    /* tessellate = triangulate = debug = plot = 0 ; */
-
-    /* switch(INTEGER(OPTION)[0]) */
-    /* 	{ */
-    /* 	case 1: */
-    /* 	    debug = 1; */
-    /* 	    break; */
-    /* 	case 2: */
-    /* 	    triangulate = 1; */
-    /* 	    break; */
-    /* 	case 3: */
-    /* 	    tessellate = 1; */
-    /* 	    break; */
-    /* 	case 4: */
-    /* 	    triangulate = 1; */
-    /* 	    tessellate = 1; */
-    /* 	    break; */
-    /* 	} */
 
     sites = (Site *)R_alloc(nsites, sizeof(Site));
     for (i = 0; i < nsites; i++) {
@@ -94,20 +70,12 @@ SEXP voronoi_fortune(SEXP X, SEXP DEBUG)
     ymin = sites[0].coord.y ;
     ymax = sites[nsites - 1].coord.y ;
 
-    next = nextone ;
     ie = i_vtx = i_out = il = siteidx = 0 ;
     geominit() ;
-    /* if (plot) */
-    /*     { */
-    /*     plotinit() ; */
-    /*     } */
 
-    /* if (triangulate) { */
     ptr_res_1 = (int*)R_alloc(N, sizeof(int));
     ptr_res_2 = (int*)R_alloc(N, sizeof(int));
     ptr_res_3 = (int*)R_alloc(N, sizeof(int));
-    /* } */
-    /* if (tessellate) { */
 
     N *= 3;
     coord_vertex_x = (double*)R_alloc(N, sizeof(double));
@@ -115,18 +83,16 @@ SEXP voronoi_fortune(SEXP X, SEXP DEBUG)
     edge_nbr = (int*)R_alloc(N, sizeof(int));
     edge_vtx1 = (int*)R_alloc(N, sizeof(int));
     edge_vtx2 = (int*)R_alloc(N, sizeof(int));;
-    /* } */
+
     line_a = (double*)R_alloc(N, sizeof(double));
     line_b = (double*)R_alloc(N, sizeof(double));
     line_c = (double*)R_alloc(N, sizeof(double));
 
-    voronoi(next) ;
+    voronoi(nextone) ;
 
     /* output */
 
-    PROTECT(res = allocVector(VECSXP, 4/* triangulate + 2*tessellate */));
-
-    /* if (triangulate) { */
+    PROTECT(res = allocVector(VECSXP, 4));
 
     /* increment the indices of the triples */
     for (i = 0; i < i_out; i++) {
@@ -145,8 +111,6 @@ SEXP voronoi_fortune(SEXP X, SEXP DEBUG)
     memcpy(ptr_int, ptr_res_3, N);
 
     SET_VECTOR_ELT(res, 0, mat0);
-    /* } */
-    /* if (tessellate) { */
 
     /* increment the indices of the vertices and lines */
     for (i = 0; i < ie; i++) {
@@ -172,7 +136,6 @@ SEXP voronoi_fortune(SEXP X, SEXP DEBUG)
     ptr_int += ie;
     memcpy(ptr_int, edge_nbr, N);
     SET_VECTOR_ELT(res, 2/* triangulate + 1 */, mat2);
-    /* } */
 
     PROTECT(mat3 = allocMatrix(REALSXP, il, 3));
     N = il * sizeof(double);

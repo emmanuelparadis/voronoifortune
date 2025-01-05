@@ -27,19 +27,17 @@
 \details{
   The \code{\dots} argument makes plotting very flexible.
 
-  The default plot procedure is to first draw the DT, setting the limits
-  according to the data, and then to draw the VT. Playing with the
-  different options can change the order of these plots.
+  The default procedure is to first draw the DT, setting the limits of
+  the axes according to the data, and then to draw the VT. Playing with
+  the different options can change the order these two are drawn.
 
-  The Fortune algorithm often adds some vertices which are far from data
-  points (sites); so if \code{delaunay = FALSE}, the scales are likely
-  to extend much more than the default.
+  The Fortune algorithm often adds some vertices which are far from the
+  data points (sites); so if \code{delaunay = FALSE}, the scales are
+  likely to extend much more than the default.
 
   The infinite edges of the VT are drawn as dashed lines.
 }
-\value{
-  (NULL).
-}
+\value{(NULL).}
 \author{Emmanuel Paradis}
 \seealso{\code{\link{voronoi}}}
 \examples{
@@ -48,10 +46,10 @@ res <- voronoi(X)
 plot(res)
 plot(res, delaunay = FALSE)
 
-## pass the data with the X argument:
 dat <- matrix(runif(40), 20, 2)
 tess.dat <- voronoi(dat)
 op <- par(mar = rep(0, 4))
+## pass the data with the X argument:
 plot(tess.dat, X = dat, pch = ".", axes = FALSE, ann = FALSE,
      xlim = c(-1, 2), ylim = c(-1, 2))
 legend("topleft", , c("Delaunay triangulation", "Voronoi tessellation"),

@@ -5,7 +5,7 @@
 \description{
   \pkg{voronoi} is a port to \R of Fortune's algorithm, a very fast
   method to compute simultaneously the Delaunay triangulaton and the
-  Voronoi tessellation for a set of points (sites). The algorithm scales
+  Voronoi tessellation for a set of sites (points). The algorithm scales
   linearly with the number of points whereas most other algorithms scale
   polynomially.
 
@@ -16,7 +16,7 @@
   A Delaunay triangulaton defines a set of triangles with vertices at
   the sites so that the circle circumscribed to a given triangle does
   not include any other site; see an annotated example in
-  \code{\link{voronoi}}.
+  \code{\link{voronoi}} including a test of this property.
 
   The original C code is at \url{https://9p.io/who/sjf/}; see the
   GitHub repository of the present package (link in the DESCRIPTION
