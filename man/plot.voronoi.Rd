@@ -11,8 +11,8 @@
 }
 \arguments{
   \item{x}{an object of class \code{"voronoi"}.}
-  \item{delaunay}{a logical value: draw the Delaunay triangulation?}
-  \item{voronoi}{a logical value: draw the Voronoi tessellation?}
+  \item{delaunay}{a logical value: draw the DT?}
+  \item{voronoi}{a logical value: draw the VT?}
   \item{X}{a two-column matrix with the original data (site
     coordinates).}
   \item{add}{a logical value. By default, a new plot is made. Setting

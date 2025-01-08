@@ -18,9 +18,8 @@
   not include any other site; see an annotated example in
   \code{\link{voronoi}} including a test of this property.
 
-  The original C code is at \url{https://9p.io/who/sjf/}; see the
-  GitHub repository of the present package (link in the DESCRIPTION
-  file) for some notes on porting this code to \R.
+  See the GitHub repository of the present package (link in the
+  DESCRIPTION file) for some notes on porting this code to \R.
 }
 \author{
   Emmanuel Paradis, Steven Fortune

@@ -3,7 +3,7 @@
 /* Copyright 2021 Plan 9 Foundation */
 
 /* This file is part of the R-package `voronoifortune'. */
-/* See the file ../../COPYING for licensing issues. */
+/* See the file ../../DESCRIPTION for licensing issues. */
 
 #include <R.h>
 #include <Rinternals.h>
