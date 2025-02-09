@@ -1,4 +1,8 @@
-<h2>Voronoi Tessellation and Delaunay Triangulation By Fortune's Algorithm</h2>
+# Voronoi Tessellation and Delaunay Triangulation By Fortune's Algorithm
+
+- [Installation and Usage](#installation-and-usage)
+- [Comparison With Other Packages](#comparison-with-other-packages)
+- [TODO](#todo)
 
 **voronoifortune** is an R port of a program written in C by [Steven Fortune](https://9p.io/who/sjf/). It performs Voronoi tessellation and Delaunay triangulation using a very efficient algorithm described in:
 
@@ -9,7 +13,7 @@ Two main changes were made to the original C code:
 1. All real numbers are now coded as double precision instead of single precision.
 2. The data are now passed to and returned from R (no files are written/read).
 
-<h3>Installation and Usage</h3>
+## Installation and Usage
 
 The package should be easy to install giving R and a C compiler (i.e., standard install from sources of an R package).
 
@@ -27,7 +31,7 @@ The returned list has four elements:
 
 There are a `print()` and a `plot()` methods to display the results.
 
-<h3>Comparison With Other Packages</h3>
+## Comparison With Other Packages
 
 I found two packages performing similar operations on CRAN: [deldir](https://cran.r-project.org/package=deldir) and [tessellation](https://cran.r-project.org/package=tessellation).
 
@@ -69,7 +73,6 @@ utilisateur     système      écoulé
 
 Fortune's algorithm has been reported to scale with $O(n)$ which seems to be true in practice:
 
-
 ```r
 R> n <- 1e4L
 R> xx <- runif(n)
@@ -96,7 +99,7 @@ R> plot(res)
 
 ![](plots.png)
 
-<h3>TODO</h3>
+## TODO
 
 - ~~The Delaunay triangulation returned by `voronoi::voronoi()` often misses some edges at the periphery of the points: these edges can easily be found with a convex hull (`hull()` in R). This will be fixed later.~~ This was a bug in the R code. The plots are now fine.
 - ~~Some memory leaks might still be need to be fixed from the original C code.~~ The original C code did not call `free()`; this was fixed by replacing `malloc()` by `R_alloc()`.
