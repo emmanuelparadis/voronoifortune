@@ -2,7 +2,6 @@
 
 - [Installation and Usage](#installation-and-usage)
 - [Comparison With Other Packages](#comparison-with-other-packages)
-- [TODO](#todo)
 
 **voronoifortune** is an R port of a program written in C by [Steven Fortune](https://9p.io/who/sjf/). It performs Voronoi tessellation and Delaunay triangulation using a very efficient algorithm described in:
 
@@ -33,7 +32,7 @@ There are a `print()` and a `plot()` methods to display the results.
 
 ## Comparison With Other Packages
 
-I found two packages performing similar operations on CRAN: [deldir](https://cran.r-project.org/package=deldir) and [tessellation](https://cran.r-project.org/package=tessellation).
+I found two packages performing similar operations on CRAN: [deldir](https://cran.r-project.org/package=deldir) and [tessellation](https://cran.r-project.org/package=tessellation). Another implementation is provided by the package [BH](https://cran.r-project.org/package=BH) with a C++ code not tested here (see below for a comment about performance scaling).
 
 First, these packages do not have the same functionalities: the present one considers only 2-D data, whereas **tessellation** can do tessellation in 3-D.
 
@@ -88,6 +87,8 @@ utilisateur     système      écoulé
       7.948       0.383       8.369
 ```
 
+The C++ code in **BH** includes a comment stating that its algorithm has complexity $O(n\ln n)$.
+
 The results seem identical for all functions. Here's an example with `n <- 100` and the default plotting parameters of each package (from left to right: **tessellation**, **deldir**, **voronoifortune**):
 
 ```r
@@ -99,8 +100,3 @@ R> plot(res)
 
 ![](plots.png)
 
-## TODO
-
-- ~~The Delaunay triangulation returned by `voronoi::voronoi()` often misses some edges at the periphery of the points: these edges can easily be found with a convex hull (`hull()` in R). This will be fixed later.~~ This was a bug in the R code. The plots are now fine.
-- ~~Some memory leaks might still be need to be fixed from the original C code.~~ The original C code did not call `free()`; this was fixed by replacing `malloc()` by `R_alloc()`.
-- ~~Prepare the package for a submission to CRAN.~~ Now on CRAN.
